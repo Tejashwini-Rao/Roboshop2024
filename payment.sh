@@ -1,8 +1,10 @@
+set -e
 yum install python36 gcc python3-devel -y
 
  useradd roboshop
 
  cd /home/roboshop
+ rm-rf payment
  curl -L -s -o /tmp/payment.zip "https://github.com/roboshop-devops-project/payment/archive/main.zip"
  unzip -o /tmp/payment.zip
  mv payment-main payment
