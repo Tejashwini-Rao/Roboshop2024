@@ -2,12 +2,16 @@
 COMPONENT=redis
 source common.sh
 
-echo Setup YUM Repo
-curl -L https://raw.githubusercontent.com/roboshop-devops-project/redis/main/redis.repo -o /etc/yum.repos.d/redis.repo &>>${LOG}
+echo "Install Redis Repo"
+dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y &>>$LOG
 StatusCheck
 
-echo Install Redis
-yum install redis-6.2.7 -y &>>${LOG}
+echo "Enable Redis Repo 6.2"
+dnf module enable redis:remi-6.2 -y &>>$LOG
+StatusCheck
+
+echo "Install Redis"
+yum install redis -y &>>$LOG
 StatusCheck
 
 echo Update Redis Listen Address
