@@ -85,6 +85,7 @@ JAVA() {
   SYSTEMD
 }
 
+
 PYTHON() {
   echo Install Python
   yum install python36 gcc python3-devel -y &>>${LOG}

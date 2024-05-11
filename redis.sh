@@ -21,3 +21,4 @@ StatusCheck
 echo Start Redis Service
 systemctl enable redis &>>${LOG} && systemctl restart redis &>>${LOG}
 StatusCheck
+
