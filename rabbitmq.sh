@@ -7,20 +7,20 @@ if [ -z "$APP_RABBITMQ_PASSWORD" ]; then
   exit 1
 fi
 
-PRINT "Configure Erlang Repos"
+echo "Configure Erlang Repos"
 curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | sudo bash &>>$LOG
 StatusCheck
 
-PRINT "Install Erlang"
+echo "Install Erlang"
 yum install erlang -y  &>>$LOG
 StatusCheck
 
 
-PRINT "Configure RabbitMQ repos"
+echo "Configure RabbitMQ repos"
 StatusCheck
 
 
-PRINT "Install RabbitMQ"
+echo "Install RabbitMQ"
 yum install rabbitmq-server -y  &>>$LOG
 StatusCheck
 
