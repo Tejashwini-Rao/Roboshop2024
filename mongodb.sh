@@ -30,3 +30,4 @@ for schema in catalogue.js users.js ; do
   mongo <  $schema
 done
 StatusCheck
+
