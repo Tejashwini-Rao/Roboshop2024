@@ -116,7 +116,7 @@ GOLANG() {
   yum install golang -y  &>>${LOG}
   StatusCheck
   
-  APP_USER_SETUP
+
 
  curl -L -s -o /tmp/${COMPONENT}.zip https://github.com/roboshop-devops-project/${COMPONENT}/archive/refs/heads/main.zip &>>${LOG}
  unzip -o /tmp/${COMPONENT}.zip && mv ${COMPONENT}-main ${COMPONENT} && cd ${COMPONENT} &>>${LOG}
@@ -124,6 +124,7 @@ GOLANG() {
 
  StatusCheck
 
+  APP_USER_SETUP
 
   echo Configuring ${COMPONENT} SystemD Service
    mv /home/roboshop/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service &>>${LOG} && systemctl daemon-reload &>>${LOG}
